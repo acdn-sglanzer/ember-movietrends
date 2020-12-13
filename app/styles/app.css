@@ -192,3 +192,20 @@ h2 {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
+
+/* Error */
+.error {
+  background-color: #ffda8a;
+  color: #c78800;
+  text-align: center;
+  padding: 1rem;
+}
+
+.error-title {
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+
+.error-message {
+  font-size: 1.25rem;
+}

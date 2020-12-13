@@ -1,2 +1,6 @@
-<Chart @movies={{model}} />
-<MovieList @movies={{@model}} />
+{{#if this.hasData}}
+  <Chart @movies={{model}} />
+  <MovieList @movies={{@model}} />
+{{else}}
+  <Error @title="No Data" @message="Please see README.md for setup instructions." />
+{{/if}}
