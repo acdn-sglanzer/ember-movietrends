@@ -8,7 +8,7 @@ export default class ChartComponent extends Component {
   @tracked filterMinimumScore = 0;
 
   get movieData() {
-    let movies = this.args.movies;
+    let movies = this.args.movies ?? [];
     if(this.filteringEnabled) {
       movies = movies.filter(movie => movie.vote_average >= this.filterMinimumScore);
     }

@@ -2,9 +2,6 @@ import Route from '@ember/routing/route';
 import ENV from 'movietrends/config/environment';
 
 export default class IndexRoute extends Route {
-  get hasData() {
-    return this.model && this.model?.length > 0;
-  }
   async model() {
     let movies = [];
     try {

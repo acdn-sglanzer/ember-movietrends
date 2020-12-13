@@ -1,6 +1,10 @@
-<div class="content-item drop-shadow border-radius">
-  <MovieListItemHeader />
-  {{#each @movies as |movie|}}
-    <MovieListItem @movie={{movie}} @size="w200"/>
-  {{/each}}
-</div>
+{{#if this.hasData}}
+  <div class="content-item drop-shadow border-radius">
+    <MovieListItemHeader />
+    {{#each @movies as |movie|}}
+      <MovieListItem @movie={{movie}} @size="w200"/>
+    {{/each}}
+  </div>
+{{else}}
+  <Error @title="No Data" @message="Please see README.md for setup instructions." />
+{{/if}}
