@@ -1,8 +1,16 @@
-<div class="chart">
-  {{ember-chart
-    type="bar"
-    data=this.chartData
-    width="100%"
-    height="100%"
-  }}
+<div class="chart-container">
+  <div class="chart">
+    {{ember-chart
+      type="bar"
+      data=this.chartData
+      options=this.chartOptions
+    }}
+  </div>
+  <div class="chart-controls">
+    <label>
+      <span>Filter out scores less than:</span>
+      <Input @value={{this.filterValue}} @type="number" />
+    </label>
+    <button {{on "click" this.toggleFilter}}>{{if this.isFiltering "Filter Off" "Filter On"}}</button>
+  </div>
 </div>

@@ -1,27 +1,37 @@
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
 export default class ChartComponent extends Component {
+  @tracked isFiltering = false;
+  @tracked filterValue = 0;
+
+  get movieData() {
+    if(this.isFiltering) {
+      return this.args.movies.filter(movie => movie.vote_average >= this.filterValue);
+    }
+    return this.args.movies;
+  }
+
   get chartData() {
     return {
-      labels: this.args.movies.map((movie) => movie.original_title),
+      labels: this.movieData.map((movie) => movie.original_title),
       datasets: [
         {
           label: 'Score',
-          fillColor: 'rgba(220,220,220,0.5)',
-          strokeColor: 'rgba(220,220,220,0.8)',
-          highlightFill: 'rgba(220,220,220,0.75)',
-          highlightStroke: 'rgba(220,220,220,1)',
-          data: this.args.movies.map((movie) => movie.vote_average),
-        },
-        {
-          label: 'Vote Count',
-          fillColor: 'rgba(220,220,220,0.5)',
-          strokeColor: 'rgba(220,220,220,0.8)',
-          highlightFill: 'rgba(220,220,220,0.75)',
-          highlightStroke: 'rgba(220,220,220,1)',
-          data: this.args.movies.map((movie) => movie.vote_count),
+          data: this.movieData.map((movie) => movie.vote_average),
         }
       ],
     };
+  }
+
+  get chartOptions() {
+    return {
+      responsive: true
+    };
+  }
+
+  @action toggleFilter() {
+    this.isFiltering = !this.isFiltering;
   }
 }
