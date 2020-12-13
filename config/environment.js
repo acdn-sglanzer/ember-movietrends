@@ -25,6 +25,8 @@ module.exports = function(environment) {
     ENV.APP.autoboot = false;
   }
 
+  ENV.THEMOVIEDB_BASE_IMAGE_URL = 'https://image.tmdb.org/t/p';
+  ENV.THEMOVIEDB_BASE_API_URL = 'https://api.themoviedb.org/3';
   ENV.THEMOVIEDB_API_KEY = '';
 
   return ENV;

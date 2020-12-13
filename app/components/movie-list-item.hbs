@@ -1,0 +1,12 @@
+<div class="movie-list-item">
+  <div class="movie-list-item-column"><img src={{this.imageSource}}/></div>
+  <div class="movie-list-item-column">{{@movie.original_title}}</div>
+  <div class="movie-list-item-column">{{@movie.vote_average}}</div>
+  <div class="movie-list-item-column">{{@movie.vote_count}}</div>
+  <div class="movie-list-item-column">
+    <button {{on "click" this.toggleExpand}}>{{if this.isExpanded "Less Info" "More Info"}}</button>
+  </div>
+</div>
+{{#if this.isExpanded}}
+  <p>{{@movie.overview}}</p>
+{{/if}}
