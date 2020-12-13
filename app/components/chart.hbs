@@ -6,38 +6,9 @@
       options=this.chartOptions
     }}
   </div>
-  <div class="chart-controls">
-    <label>
-      <span>Ascending Order:</span>
-      <Input
-        class="checkbox"
-        @id="filter-ascending"
-        @type="checkbox"
-        @checked={{this.filterAscending}}
-      />
-    </label>
-    <br/>
-    <label>
-      <span>Enabled Advanced Filtering:</span>
-      <Input
-        class="checkbox"
-        @id="filter-advanced"
-        @type="checkbox"
-        @checked={{this.filteringEnabled}}
-      />
-    </label>
-    <br/>
-    {{#if this.filteringEnabled}}
-    <label>
-      <span>Filter out scores less than:</span>
-      <Input
-        class="input"
-        @id="filter-score"
-        @value={{this.filterMinimumScore}}
-        @type="number"
-        disabled={{if this.filteringEnabled false true}}
-      />
-    </label>
-    {{/if}}
-  </div>
+  <ChartControls
+    @filterAscending={{this.filterAscending}}
+    @filteringEnabled={{this.filteringEnabled}}
+    @filterMinimumScore={{this.filterMinimumScore}}
+  />
 </div>
