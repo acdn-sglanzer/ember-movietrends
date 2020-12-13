@@ -1,34 +1,38 @@
 <div class="chart-controls">
-  <label>
-    <span>Ascending Order:</span>
-    <Input
-      class="checkbox"
-      @id="filter-ascending"
-      @type="checkbox"
-      @checked={{@filterAscending}}
-    />
-  </label>
-  <br/>
-  <label>
-    <span>Enabled Advanced Filtering:</span>
-    <Input
-      class="checkbox"
-      @id="filter-advanced"
-      @type="checkbox"
-      @checked={{@filteringEnabled}}
-    />
-  </label>
-  <br/>
-  {{#if @filteringEnabled}}
+  <div class="chart-control-item">
     <label>
-      <span>Filter out scores less than:</span>
+      <h2>Ascending Order:</h2>
       <Input
-        class="input"
-        @id="filter-score"
-        @value={{@filterMinimumScore}}
-        @type="number"
-        disabled={{if @filteringEnabled false true}}
+        class="checkbox"
+        @id="filter-ascending"
+        @type="checkbox"
+        @checked={{@filterAscending}}
       />
     </label>
+  </div>
+  <div class="chart-control-item">
+    <label>
+      <h2>Enabled Advanced Filtering:</h2>
+      <Input
+        class="checkbox"
+        @id="filter-advanced"
+        @type="checkbox"
+        @checked={{@filteringEnabled}}
+      />
+    </label>
+  </div>
+  {{#if @filteringEnabled}}
+    <div class="chart-control-item">
+      <label>
+        <h2>Filter out scores less than:</h2>
+        <Input
+          class="input"
+          @id="filter-score"
+          @value={{@filterMinimumScore}}
+          @type="number"
+          disabled={{if @filteringEnabled false true}}
+        />
+      </label>
+    </div>
   {{/if}}
 </div>
