@@ -30,7 +30,6 @@ html, body {
 .chart {
   display: flex;
   flex: 1;
-  background-color: aquamarine;
 }
 
 /* Movie List */

@@ -27,7 +27,7 @@ module.exports = function(environment) {
 
   ENV.THEMOVIEDB_BASE_IMAGE_URL = 'https://image.tmdb.org/t/p';
   ENV.THEMOVIEDB_BASE_API_URL = 'https://api.themoviedb.org/3';
-  ENV.THEMOVIEDB_API_KEY = '';
+  ENV.THEMOVIEDB_API_KEY = '0cdfa0af49597dc7d4beb812f11fb4b3';
 
   return ENV;
 };
