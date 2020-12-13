@@ -10,6 +10,10 @@ html, body {
   background-color: #edf2fb;
   font-size: 16px;
   color: #355070;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Nav */
@@ -21,9 +25,43 @@ html, body {
 
 /* Content */
 .content {
-  margin: 0 auto;
   display: flex;
   flex-direction: row;
+  flex: 1;
+  overflow: auto;
+  background-color: aquamarine;
+}
+
+/* UI */
+.button {
+  font-size: 1rem;
+  padding: 0.5em;
+  border-radius: 1em;
+  border: 0.5px solid rgba(0, 0, 0, 0.5);
+  background-color: rgba(232, 255, 127, 0.5);
+}
+
+.button:hover {
+  border: 0.5px solid rgba(0, 0, 0, 0.75);
+  background-color: rgb(232, 255, 127);
+}
+
+.input {
+  font-size: 1rem;
+  padding: 0.5em;
+  border-radius: 1em;
+  border: 0.5px solid rgba(0, 0, 0, 0.5);
+  background-color: rgba(232, 255, 127, 0.5);
+}
+
+.input:hover, .input:focus {
+  border: 0.5px solid rgba(0, 0, 0, 0.75);
+  background-color: rgb(232, 255, 127);
+  outline: none;
+}
+
+.checkbox {
+  font-size: 2rem;
 }
 
 /* Chart */
@@ -38,15 +76,15 @@ html, body {
 }
 
 .chart-controls {
-
 }
 
 /* Movie List */
 .movie-list {
   display: flex;
-  flex: 0.75;
+  flex: 1;
   flex-direction: column;
   overflow-y: auto;
+  min-height: min-content;
 }
 
 .movie-list-item {

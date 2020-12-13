@@ -8,9 +8,36 @@
   </div>
   <div class="chart-controls">
     <label>
-      <span>Filter out scores less than:</span>
-      <Input @value={{this.filterValue}} @type="number" />
+      <span>Ascending Order:</span>
+      <Input
+        class="checkbox"
+        @id="filter-ascending"
+        @type="checkbox"
+        @checked={{this.filterAscending}}
+      />
     </label>
-    <button {{on "click" this.toggleFilter}}>{{if this.isFiltering "Filter Off" "Filter On"}}</button>
+    <br/>
+    <label>
+      <span>Enabled Advanced Filtering:</span>
+      <Input
+        class="checkbox"
+        @id="filter-advanced"
+        @type="checkbox"
+        @checked={{this.filteringEnabled}}
+      />
+    </label>
+    <br/>
+    {{#if this.filteringEnabled}}
+    <label>
+      <span>Filter out scores less than:</span>
+      <Input
+        class="input"
+        @id="filter-score"
+        @value={{this.filterMinimumScore}}
+        @type="number"
+        disabled={{if this.filteringEnabled false true}}
+      />
+    </label>
+    {{/if}}
   </div>
 </div>

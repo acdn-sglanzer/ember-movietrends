@@ -4,7 +4,7 @@
   <div class="movie-list-item-column">{{@movie.vote_average}}</div>
   <div class="movie-list-item-column">{{@movie.vote_count}}</div>
   <div class="movie-list-item-column">
-    <button {{on "click" this.toggleExpand}}>{{if this.isExpanded "Less Info" "More Info"}}</button>
+    <Button @label={{if this.isExpanded "Less Info" "More Info"}} @handleOnClick={{this.toggleExpand}}/>
   </div>
 </div>
 {{#if this.isExpanded}}

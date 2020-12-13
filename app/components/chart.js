@@ -1,21 +1,24 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 
+const maxTitleLength = 15;
 export default class ChartComponent extends Component {
-  @tracked isFiltering = false;
-  @tracked filterValue = 0;
+  @tracked filteringEnabled = false;
+  @tracked filterAscending = true;
+  @tracked filterMinimumScore = 0;
 
   get movieData() {
-    if(this.isFiltering) {
-      return this.args.movies.filter(movie => movie.vote_average >= this.filterValue);
+    let movies = this.args.movies;
+    if(this.filteringEnabled) {
+      movies = movies.filter(movie => movie.vote_average >= this.filterMinimumScore);
     }
-    return this.args.movies;
+    movies.sort((a, b) => this.filterAscending ? a.vote_average - b.vote_average : b.vote_average - a.vote_average);
+    return movies;
   }
 
   get chartData() {
     return {
-      labels: this.movieData.map((movie) => movie.original_title),
+      labels: this.movieData.map((movie) => this.formatMovieTitle(movie.original_title, maxTitleLength)),
       datasets: [
         {
           label: 'Score',
@@ -31,7 +34,10 @@ export default class ChartComponent extends Component {
     };
   }
 
-  @action toggleFilter() {
-    this.isFiltering = !this.isFiltering;
+  formatMovieTitle(title, maxLength) {
+    if(title && title?.length > maxLength) {
+      return `${title.substring(0, maxLength)}...`;
+    }
+    return title ?? '';
   }
 }
