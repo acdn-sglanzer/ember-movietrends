@@ -76,22 +76,16 @@ h2 {
   align-items: center;
 }
 
-.grid__item {
-  display: flex;
-}
-
 .grid__item--newline {
   flex-basis:100%;
   height:0;
 }
 
 .grid__item--full {
-  display: flex;
   flex: 1;
 }
 
 .grid__item--half {
-  display: flex;
   flex: 0.5;
 }
 
@@ -206,10 +200,10 @@ h2 {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.movie__item__img img {
-  max-width: 50px;
+.movie__item__img {
+  align-self: flex-start;
+  width: 50px;
   height: auto;
-  padding: 0.25rem;
 }
 
 .moviel__item__moreinfo {
