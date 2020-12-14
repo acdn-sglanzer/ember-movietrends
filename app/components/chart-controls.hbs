@@ -1,20 +1,20 @@
-<div class="chart-controls">
-  <div class="chart-control-item">
+<div class="chart__controls">
+  <div class="chart__control">
     <label>
       <h2>Ascending Order:</h2>
       <Input
-        class="checkbox"
+        class="chart__control__checkbox"
         @id="filter-ascending"
         @type="checkbox"
         @checked={{@filterAscending}}
       />
     </label>
   </div>
-  <div class="chart-control-item">
+  <div class="chart__control">
     <label>
       <h2>Enabled Advanced Filtering:</h2>
       <Input
-        class="checkbox"
+        class="chart__control__checkbox"
         @id="filter-advanced"
         @type="checkbox"
         @checked={{@filteringEnabled}}
@@ -22,11 +22,11 @@
     </label>
   </div>
   {{#if @filteringEnabled}}
-    <div class="chart-control-item">
+    <div class="chart__control">
       <label>
         <h2>Remove Scores That Are Less Than:</h2>
         <Input
-          class="input"
+          class="chart__control__input"
           @id="filter-score"
           @value={{@filterMinimumScore}}
           @type="number"

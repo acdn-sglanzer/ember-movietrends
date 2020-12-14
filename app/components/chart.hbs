@@ -1,11 +1,9 @@
-<div class="content-item drop-shadow border-radius chart-container">
-  <div class="chart">
-    {{ember-chart
-      type="bar"
-      data=this.chartData
-      options=this.chartOptions
-    }}
-  </div>
+<div class="grid__item--full grid__container--column chart">
+  {{ember-chart
+    type="bar"
+    data=this.chartData
+    options=this.chartOptions
+  }}
   <ChartControls
     @filterAscending={{this.filterAscending}}
     @filteringEnabled={{this.filteringEnabled}}

@@ -1,2 +1,8 @@
-<Chart @movies={{model}} />
-<MovieList @movies={{@model}} />
+<div class="grid__item--full grid__container--row content__root">
+  <div class="grid__item--half drop-shadow border-radius content__item">
+    <Chart @movies={{model}} />
+  </div>
+  <div class="grid__item--half drop-shadow border-radius content__item">
+    <MovieList @movies={{@model}} />
+  </div>
+</div>

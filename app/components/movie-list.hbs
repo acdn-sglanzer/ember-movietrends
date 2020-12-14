@@ -1,5 +1,5 @@
 {{#if this.hasData}}
-  <div class="content-item drop-shadow border-radius">
+  <div class="grid__item--full grid__container--column">
     <MovieListItemHeader />
     {{#each @movies as |movie|}}
       <MovieListItem @movie={{movie}} @size="w200"/>

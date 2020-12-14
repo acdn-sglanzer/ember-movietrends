@@ -1,16 +1,17 @@
-<div class="movie-list-item">
-  <div style="display:flex; flex:1; flex-direction:row; align-items: center;">
-    <div class="movie-list-item-column"><img src={{this.imageSource}}/></div>
-    <div class="movie-list-item-column">{{@movie.original_title}}</div>
-    <div class="movie-list-item-column">{{@movie.vote_average}}</div>
-    <div class="movie-list-item-column">{{@movie.vote_count}}</div>
-    <div class="movie-list-item-column">
+<div class="grid__item--full moviel__item">
+  <div class="grid__item--full grid__container--row grid__container--cross-center">
+    <div class="grid__item--full movie__item__img">
+      <img src={{this.imageSource}}/>
+    </div>
+    <div class="grid__item--full">{{@movie.original_title}}</div>
+    <div class="grid__item--full">{{@movie.vote_average}}</div>
+    <div class="grid__item--full">{{@movie.vote_count}}</div>
+    <div class="grid__item--full">
       <Button @label={{if this.isExpanded "Less Info" "More Info"}} @handleOnClick={{this.toggleExpand}}/>
     </div>
   </div>
   {{#if this.isExpanded}}
-    <div style="flex-basis:100%; height:0;"></div>
-    <div class="movie-list-item-moreinfo">{{@movie.overview}}</div>
+    <div class="grid__item--newline"></div>
+    <div class="grid__item--full moviel__item__moreinfo">{{@movie.overview}}</div>
   {{/if}}
 </div>
-
